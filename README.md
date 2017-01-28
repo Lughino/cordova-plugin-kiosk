@@ -22,7 +22,9 @@ By adding this Cordova plugin the Cordova app becomes the the homescreen (also k
 
 To add plugin into existing Cordova / Phonegap application:
 
-    cordova plugin add https://github.com/honza889/cordova-plugin-kiosk.git
+    cordova plugin add https://github.com/honza889/cordova-plugin-kiosk.git --variable KIOSK_LABEL='My Kiosk Laucher Label'
+
+If no `KIOSK_LABEL` value is defined, the default `Cordova Kiosk Mode` is used.
 
 The `AndroidManifest.xml` should be updated immediately. If not, you can force it by removing and re-adding Android platform:
 
