@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-plugin-kiosk" version="0.2">
+        id="cordova-plugin-kiosk" version="0.2.0">
 
     <name>Cordova Kiosk Mode</name>
     <author>Jan Kalina</author>
