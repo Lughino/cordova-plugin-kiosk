@@ -39,7 +39,9 @@ public class KioskActivity extends CordovaActivity {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
         if(Build.VERSION.SDK_INT >= 23) {
             sp.edit().putBoolean(PREF_KIOSK_MODE, false).commit();
-            checkDrawOverlayPermission();
+            if(checkDrawOverlayPermission()){
+                addOverlay();
+            }
         } else {
             sp.edit().putBoolean(PREF_KIOSK_MODE, true).commit();
             addOverlay();
@@ -48,11 +50,15 @@ public class KioskActivity extends CordovaActivity {
     }
     //http://stackoverflow.com/questions/7569937/unable-to-add-window-android-view-viewrootw44da9bc0-permission-denied-for-t
     @TargetApi(Build.VERSION_CODES.M)
-    public void checkDrawOverlayPermission() {
+    public boolean checkDrawOverlayPermission() {
         if (!Settings.canDrawOverlays(this.getApplicationContext())) {
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:" + getPackageName()));
             startActivityForResult(intent, REQUEST_CODE);
+            return false;
+        }
+        else{
+            return true;
         }
     }
 

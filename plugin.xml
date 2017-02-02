@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-plugin-kiosk" version="0.2">
+        id="cordova-plugin-kiosk" version="0.2.0">
 
     <name>Cordova Kiosk Mode</name>
     <author>Jan Kalina</author>
@@ -28,6 +28,8 @@
     <js-module src="kiosk.js" name="kioskPlugin">
         <clobbers target="window.KioskPlugin" />
     </js-module>
+        
+    <preference name="KIOSK_LABEL" default="Cordova Kiosk Mode" />
 
     <platform name="android">
 
@@ -56,7 +58,7 @@
                         <category android:name="android.intent.category.DEFAULT" />
                     </intent-filter>
                 </activity>
-            <activity android:label="Rilevatore Presenze Modalità Chiosco" android:launchMode="singleInstance" android:keepScreenOn="true" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|uiMode" android:windowSoftInputMode="adjustResize" android:name="jk.cordova.plugin.kiosk.KioskActivity" android:screenOrientation="sensorLandscape">
+            <activity android:label="$KIOSK_LABEL" android:launchMode="singleInstance" android:keepScreenOn="true" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|uiMode" android:windowSoftInputMode="adjustResize" android:name="jk.cordova.plugin.kiosk.KioskActivity" android:screenOrientation="sensorLandscape">
                 <intent-filter>
                     <action android:name="android.intent.action.MAIN" />
                     <category android:name="android.intent.category.DEFAULT" />
